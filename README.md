@@ -1,4 +1,4 @@
-# vue_ai_news_app
+# This is a new search app creates in vue.js
 
 ## Project setup
 ```
