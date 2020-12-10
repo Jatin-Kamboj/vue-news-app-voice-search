@@ -1,4 +1,4 @@
-# This is a new search app creates in vue.js
+# This is a news search app creates in vue.js
 
 ## Project setup
 
