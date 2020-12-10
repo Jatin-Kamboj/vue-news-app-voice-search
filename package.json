@@ -9,10 +9,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@alan-ai/alan-sdk-web": "^1.8.5",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "words-to-numbers": "^1.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -28,6 +30,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^7.0.0-0",
+    "jsdoc": "^3.6.6",
     "prettier": "^1.19.1",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0"

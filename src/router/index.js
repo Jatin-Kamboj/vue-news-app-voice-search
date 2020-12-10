@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import publicRoutes from "./routes/public.routes";
+import { PublicRoutes } from "./routes";
 
 /**
  * All the routes of the application
  */
-const routes = [...publicRoutes];
+const routes = [...PublicRoutes];
 
 /**
  * Creates router
