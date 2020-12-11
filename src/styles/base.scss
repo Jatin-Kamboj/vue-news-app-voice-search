@@ -1,0 +1,19 @@
+#app,
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+// Also takes the condiderationt the borderer and marging in a div element
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}

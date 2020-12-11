@@ -14,6 +14,8 @@
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0",
     "words-to-numbers": "^1.5.1"
   },
   "devDependencies": {
@@ -31,9 +33,7 @@
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^7.0.0-0",
     "jsdoc": "^3.6.6",
-    "node-sass": "^5.0.0",
     "prettier": "^1.19.1",
-    "sass-loader": "^10.1.0",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0"
   }
