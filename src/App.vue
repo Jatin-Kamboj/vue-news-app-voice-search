@@ -1,6 +1,23 @@
 <template>
   <!------------------------  Vue Router  -------------------------->
-  <router-view />
+  <!-- <router-view /> -->
+  <div>App</div>
 </template>
 
-<style></style>
+<script>
+import alanBtn from "@alan-ai/alan-sdk-web";
+export default {
+  beforeMount() {
+    alanBtn({
+      key: "YOUR_KEY_FROM_ALAN_STUDIO_HERE",
+      onCommand: (commandData) => {
+        if (commandData.command === "go:back") {
+          // Call the client code that will react to the received command
+        }
+      },
+    });
+  },
+};
+</script>
+
+<style lang="scss"></style>
