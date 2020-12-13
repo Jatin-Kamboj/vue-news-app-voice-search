@@ -1,6 +1,7 @@
 # This is a news search app creates in vue.js
 
 ## Project setup
+Create an .env.development file
 
 ```
 npm install
