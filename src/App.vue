@@ -1,11 +1,17 @@
 <template>
   <!------------------------  Vue Router  -------------------------->
   <!-- <router-view /> -->
-  <div>App</div>
+  <div class="field">
+    <div class="control">
+      <input class="input is-primary" type="text" placeholder="Primary input" />
+    </div>
+  </div>
 </template>
 
 <script>
 import alanBtn from "@alan-ai/alan-sdk-web";
+import "@/assets/styles/main.scss";
+
 export default {
   beforeMount() {
     alanBtn({
