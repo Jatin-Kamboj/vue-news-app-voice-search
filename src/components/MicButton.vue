@@ -21,7 +21,7 @@ export default {
       console.log("onBtnMouseDown", event);
     },
     getUserMedia(media) {
-      // console.log("getUserMedia >>", media);
+      console.log("getUserMedia >>", media);
     },
   },
 };

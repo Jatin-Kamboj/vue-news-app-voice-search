@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import alanBtn from "@alan-ai/alan-sdk-web";
+// import alanBtn from "@alan-ai/alan-sdk-web";
 import { MicButton } from "@/components";
 
 export default {
