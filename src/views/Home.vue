@@ -1,17 +1,23 @@
 <template>
-  <div>Home</div>
+  <section><MicButton /></section>
 </template>
 
 <script>
-// import alanBtn from "@alan-ai/alan-sdk-web";
+import alanBtn from "@alan-ai/alan-sdk-web";
+import { MicButton } from "@/components";
 
 export default {
-  beforeMount() {},
+  components: {
+    MicButton,
+  },
+  beforeMount() {
+    this.initialiseAlan();
+  },
   methods: {
     initialiseAlan() {
-      // /**
-      //  * Integerates alan api and adds alan button
-      //  */
+      /**
+       * Integerates alan api and adds alan button
+       */
       // alanBtn({
       //   key: process.env.VUE_APP_ALAN_API_KEY,
       //   onCommand: ({ command }) => {
