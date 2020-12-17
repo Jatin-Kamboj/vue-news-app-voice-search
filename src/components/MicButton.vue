@@ -1,10 +1,14 @@
 <template>
   <div class="micBtn-root">
     <div class="micBtn">
-      <div class="micBtn-img" @mousedown="onBtnMouseDown">
+      <div
+        class="micBtn-img"
+        data-tooltip="Click to search"
+        @mousedown="onBtnMouseDown"
+      >
         <span class="icon">
           <img
-            src="/assets/images/microphone-black-shape.svg"
+            src="/assets/images/microphone.svg"
             style="color:white"
             alt="Microphone"
           />
