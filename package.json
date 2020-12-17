@@ -12,6 +12,7 @@
     "@alan-ai/alan-sdk-web": "^1.8.5",
     "@creativebulma/bulma-tooltip": "^1.2.0",
     "animate.css": "^4.1.1",
+    "annyang": "^2.6.1",
     "bulma": "^0.9.1",
     "core-js": "^3.6.5",
     "node-sass": "^5.0.0",

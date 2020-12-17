@@ -4,6 +4,7 @@
       <div
         class="micBtn-img"
         data-tooltip="Click to search"
+        @click="getUserMedia"
         @mousedown="onBtnMouseDown"
       >
         <span class="icon">
@@ -19,13 +20,31 @@
 </template>
 
 <script>
+import annyang from "annyang";
+
 export default {
   methods: {
     onBtnMouseDown(event) {
       console.log("onBtnMouseDown", event);
     },
-    getUserMedia(media) {
-      console.log("getUserMedia >>", media);
+    /**
+     * Listens to the user speech
+     */
+    getUserMedia() {
+      const commands = {
+        hello: () => {
+          alert("Hello world!");
+        },
+      };
+
+      // Add commands to annyang
+      annyang.addCommands(commands);
+
+      // Start listening.
+      annyang.start();
+    },
+    getNews(source) {
+      console.log("getNews :>> ", source);
     },
   },
 };
