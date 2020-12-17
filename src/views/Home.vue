@@ -1,34 +1,16 @@
 <template>
-  <section><MicButton /></section>
+  <section><MicButton /> <NewsCards /></section>
 </template>
 
 <script>
-// import alanBtn from "@alan-ai/alan-sdk-web";
-import { MicButton } from "@/components";
+import { MicButton, NewsCards } from "@/components";
 
 export default {
   components: {
     MicButton,
+    NewsCards,
   },
-  beforeMount() {
-    this.initialiseAlan();
-  },
-  methods: {
-    initialiseAlan() {
-      /**
-       * Integerates alan api and adds alan button
-       */
-      // alanBtn({
-      //   key: process.env.VUE_APP_ALAN_API_KEY,
-      //   onCommand: ({ command }) => {
-      //     // Call the client code that will react to the received command
-      //     if (command === "testcommand") {
-      //       alert("Played");
-      //     }
-      //   },
-      // });
-    },
-  },
+  methods: {},
 };
 </script>
 
