@@ -75,7 +75,7 @@ export default {
         this.recognition.start();
 
         /**
-         * Runs every time the Speech APi captures a line
+         * Runs every time when speech api captures user audion into text line
          */
         this.recognition.onresult = (event) => {
           // We only need the current (Latest) one.
