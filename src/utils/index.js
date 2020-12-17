@@ -5,7 +5,7 @@
 export const isSpeechSynthesisSupported = () => "speechSynthesis" in window;
 
 /**
- * Activates speech synthesis
+ * Reads the text to the user
  */
 export const activateSpeech = () => {
   if (isSpeechSynthesisSupported()) {
