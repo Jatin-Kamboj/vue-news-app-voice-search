@@ -7,7 +7,6 @@
           class="micBtn-img"
           :class="{ 'pulse blue': isUserSpeaking }"
           data-tooltip="Click to search"
-          @mousedown="onBtnMouseDown"
           @click="onMicClick"
         >
           <div class="icon">
@@ -37,18 +36,15 @@ export default {
     };
   },
   methods: {
-    onBtnMouseDown() {
-      // console.log("onBtnMouseDown", event);
-    },
     onMicClick() {
-      // If user is speaking an clicks the mic icon again
-      // the we will stop the voice recognition
+      // If user is speaking and clicks the mic button again
+      // then we will stop the voice recognition
       if (this.isUserSpeaking) {
         this.stopSpeechRecognition();
         return;
       }
-      
-      //Play's sound
+
+      //Play's mic sound
       this.playMicVoice();
 
       // Starts speech recognition
@@ -57,14 +53,18 @@ export default {
       this.setIsUserSpeaking(true);
     },
     /**
-     * Starts user speech recognition
+     * Voice Recognition
+     * @description Starts user speech recognition
      */
     onSpeech() {
       try {
         var SpeechRecognition =
           window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        // Initialise speech recognition
         this.recognition = new SpeechRecognition();
-        // const recognition = new window.webkitSpeechRecognition();
+
+        //
         this.recognition.continuous = true;
 
         /**
@@ -78,8 +78,9 @@ export default {
          * Runs every time the Speech APi captures a line
          */
         this.recognition.onresult = (event) => {
-          // We only need the current one.
+          // We only need the current (Latest) one.
           var current = event.resultIndex;
+
           const speechToText = event.results[current][0].transcript;
           console.log("speechToText :>> ", speechToText);
         };
@@ -104,7 +105,7 @@ export default {
         };
 
         /**
-         * When a n error is occured while voice recognition is working
+         * When an error is occured while speech recognition is working
          */
         this.recognition.onerror = function(event) {
           if (event.error == "no-speech") {
@@ -124,15 +125,15 @@ export default {
       this.setIsUserSpeaking(false);
     },
     /**
-     * Sets isUserSpeaking property of the component
-     * @param {Boolean} val Value to set for isUserSpeaking property
+     * Sets isUserSpeaking data property of the component
+     * @param {Boolean} val - Boolean value to set for isUserSpeaking property
      */
     setIsUserSpeaking(val) {
       if (typeof val !== "boolean") return;
       this.isUserSpeaking = val;
     },
     /**
-     * Plays mic audio sound when user clicks on the mic icon
+     * Plays mic audio sound when user clicks on the mic button
      */
     playMicVoice() {
       var sound = new Audio(soundMp3);
@@ -143,6 +144,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// Styles for the mic button
 .micBtn-root {
   right: 40px;
   bottom: 40px;
@@ -204,6 +206,7 @@ export default {
   }
 }
 
+// Styles for mic pulse effect
 .pulse-container {
   display: flex;
 
