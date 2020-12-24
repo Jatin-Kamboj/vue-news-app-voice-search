@@ -42,6 +42,32 @@
 <script>
 export default {
   name: "Header",
+  mounted() {
+    this.toggleNavBurger();
+  },
+  methods: {
+    /**
+     * Adds isactive class for the header handburger to show and close
+     * in mobile view only
+     */
+    toggleNavBurger() {
+      const navBurger = this.getDoccumentEl(".navbar-burger");
+      const navMenu = this.getDoccumentEl(".navbar-menu");
+
+      navBurger.addEventListener("click", function() {
+        navBurger.classList.toggle("is-active");
+        navMenu.classList.toggle("is-active");
+      });
+    },
+    /**
+     * Finds and returns a element in the Dom
+     * @param {String}
+     * @returns {Element} - Dom element
+     */
+    getDoccumentEl(selector) {
+      return document.querySelector(selector);
+    },
+  },
 };
 </script>
 
