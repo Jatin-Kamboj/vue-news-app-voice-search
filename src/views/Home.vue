@@ -1,9 +1,17 @@
 <template>
-  <div class="test"><span class="test"> Home</span></div>
+  <section>
+    <mic-button />
+  </section>
 </template>
 
 <script>
-export default {};
+import { MicButton } from "@/components";
+
+export default {
+  components: {
+    MicButton,
+  },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
