@@ -25,6 +25,7 @@
 <script>
 // import { StyledTitle } from "./styledComponents";
 import soundMp3 from "../assets/sound/mic_click_sound.mp3";
+import { getTopHeadlines } from "../services/apis/news.js";
 export default {
   components: {
     // StyledTitle,
@@ -33,7 +34,22 @@ export default {
     return {
       isUserSpeaking: false,
       recognition: null,
+      newsArticles: [],
     };
+  },
+  async mounted() {
+    try {
+      const params = {
+        country: "in",
+      };
+      const {
+        data: { articles },
+      } = await getTopHeadlines(params);
+
+      this.newsArticles = articles;
+    } catch (error) {
+      console.log("getTopHeadlines error :>> ", error);
+    }
   },
   methods: {
     onMicClick() {
@@ -98,7 +114,7 @@ export default {
          * When speech recognition ends
          */
         this.recognition.onspeechend = function() {
-          this.isUserSpeaking = false;
+          this.setIsUserSpeaking(false);
           console.log(
             "You were quiet for a while so voice recognition turned itself off."
           );

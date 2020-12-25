@@ -1,12 +1,12 @@
 import axios from "axios";
-import { API_BASE_URL } from "../api/endpoints";
+import { API_BASE_URL } from "../apis/api-endpoints";
 import { errorInterceptor, requestInterceptor } from "./interceptors";
 
 /**
- * Axios intsnace to be used to send an api request to the server
+ * Axios instance to be used to send an api request to the server
  * @returns {Promise || Error}
  */
-const axiosInstance = axios.create({
+const api = axios.create({
   baseURL: API_BASE_URL,
   // timeout: 10000,
 });
@@ -14,7 +14,7 @@ const axiosInstance = axios.create({
 /**
  * Intercepts the api requests
  */
-axiosInstance.interceptors.request.use(requestInterceptor, errorInterceptor);
-// axiosInstance.interceptors.response.use(responseInterceptor, errorInterceptor);
+api.interceptors.request.use(requestInterceptor, errorInterceptor);
+// api.interceptors.response.use(responseInterceptor, errorInterceptor);
 
-export default axiosInstance;
+export default api;
