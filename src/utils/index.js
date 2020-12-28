@@ -18,3 +18,8 @@ export const activateSpeech = () => {
     alert("Sorry, your browser doesn't support text to speech!");
   }
 };
+
+/**
+ * Returns news api key
+ */
+export const getNewsApiKey = () => process.env.VUE_APP_NEWS_APP_API_KEY;
