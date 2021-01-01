@@ -1,5 +1,5 @@
 <template>
-  <div class="news-cards columns is-mobile">
+  <div class="news-cards row">
     <news-card
       v-for="newsArticle in newsArticles"
       :newsArticle="newsArticle"

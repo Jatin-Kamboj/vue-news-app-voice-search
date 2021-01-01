@@ -1,5 +1,5 @@
 <template>
-  <div class="mic-container">
+  <div class="mic-container position-relative">
     <div class="micBtn-root">
       <!-- <styled-title /> -->
       <div class="micBtn pulse-container">
