@@ -1,16 +1,18 @@
 <template>
-  <Header />
+  <app-layout />
   <!-- Vue Router -->
-  <router-view />
+  <div class="container">
+    <router-view />
+  </div>
 </template>
 
 <script>
-import { Header } from "@/components/layout";
+import { AppLayout } from "@/layout";
 import "@/assets/styles/main.scss";
 
 export default {
   components: {
-    Header,
+    AppLayout,
   },
 };
 </script>

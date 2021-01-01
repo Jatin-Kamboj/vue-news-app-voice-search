@@ -12,7 +12,7 @@
           <div class="icon">
             <img
               src="/assets/images/microphone.svg"
-              style="color:white"
+              style="color: white"
               alt="Microphone"
             />
           </div>
@@ -25,7 +25,6 @@
 <script>
 // import { StyledTitle } from "./styledComponents";
 import soundMp3 from "../assets/sound/mic_click_sound.mp3";
-import { getTopHeadlines } from "../services/apis/news.js";
 import { getUserVoiceCommand } from "../helpers";
 
 export default {
@@ -36,23 +35,9 @@ export default {
     return {
       isUserSpeaking: false,
       recognition: null,
-      newsArticles: [],
     };
   },
-  async mounted() {
-    try {
-      const params = {
-        country: "in",
-      };
-      const {
-        data: { articles },
-      } = await getTopHeadlines(params);
 
-      this.newsArticles = articles;
-    } catch (error) {
-      console.log("getTopHeadlines error :>> ", error);
-    }
-  },
   methods: {
     onMicClick() {
       // If user is speaking and clicks the mic button again
@@ -107,7 +92,7 @@ export default {
         /**
          * When speech recognition starts
          */
-        this.recognition.onstart = function() {
+        this.recognition.onstart = function () {
           console.log(
             "Voice recognition activated. Try speaking into the microphone."
           );

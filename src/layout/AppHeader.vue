@@ -24,9 +24,7 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
-            Home
-          </a>
+          <a class="navbar-item"> Home </a>
         </div>
 
         <div class="navbar-end">
@@ -41,7 +39,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "AppHeader",
   mounted() {
     this.toggleNavBurger();
   },
@@ -54,7 +52,7 @@ export default {
       const navBurger = this.getDoccumentEl(".navbar-burger");
       const navMenu = this.getDoccumentEl(".navbar-menu");
 
-      navBurger.addEventListener("click", function() {
+      navBurger.addEventListener("click", function () {
         navBurger.classList.toggle("is-active");
         navMenu.classList.toggle("is-active");
       });
