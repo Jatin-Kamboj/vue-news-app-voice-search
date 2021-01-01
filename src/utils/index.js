@@ -7,11 +7,12 @@ export const isSpeechSynthesisSupported = () => "speechSynthesis" in window;
 /**
  * Reads the text to the user
  */
-export const activateSpeech = () => {
+export const activateSpeech = (message) => {
   if (isSpeechSynthesisSupported()) {
     // Speech Synthesis supported 🎉
     var msg = new SpeechSynthesisUtterance();
-    msg.text = "Good Morning";
+    msg.text = message;
+    console.log(message);
     window.speechSynthesis.speak(msg);
   } else {
     // Speech Synthesis Not Supported 😣

@@ -23,35 +23,56 @@
 </template>
 
 <script>
-// import { StyledTitle } from "./styledComponents";
+import annyang from "annyang";
 import soundMp3 from "../assets/sound/mic_click_sound.mp3";
 import { getUserVoiceCommand } from "../helpers";
+import { activateSpeech } from "../utils";
+import voiceCommands from "../constants/voice-commands.js";
 
 export default {
-  components: {
-    // StyledTitle,
-  },
   data() {
     return {
       isUserSpeaking: false,
-      recognition: null,
+      annyang,
     };
   },
 
   methods: {
     onMicClick() {
-      // If user is speaking and clicks the mic button again
-      // then we will stop the voice recognition
+      // //Play's mic sound
+      this.playMicVoice();
+
+      // All the voice commands
+
+      const commands = {
+        [voiceCommands.appIntroduction.input]: (tag) => {
+          console.log("tag :>> ", tag);
+          activateSpeech(voiceCommands.appIntroduction.output);
+        },
+        /**
+         * @emits serach-news to serach news
+         */
+        [voiceCommands.searchNews.input]: (newsChannel) => {
+          console.log(newsChannel);
+          this.$emit("serach-news", newsChannel);
+
+          activateSpeech(`${voiceCommands.searchNews.output} ${[newsChannel]}`);
+        },
+      };
+
+      // Add our commands to annyang
+      this.annyang.addCommands(commands);
+
+      // Start listening.
+      this.annyang.start();
+      this.annyang.debug();
+
+      // // If user is speaking and clicks the mic button again
+      // // then we will stop the voice recognition
       if (this.isUserSpeaking) {
         this.stopSpeechRecognition();
         return;
       }
-
-      //Play's mic sound
-      this.playMicVoice();
-
-      // Starts speech recognition
-      this.onSpeech();
 
       this.setIsUserSpeaking(true);
     },
@@ -125,7 +146,7 @@ export default {
      * @description stops the voice recognition
      */
     stopSpeechRecognition() {
-      this.recognition.stop();
+      annyang.start();
       this.setIsUserSpeaking(false);
     },
     /**
@@ -147,4 +168,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.mic-container {
+  z-index: 9;
+}
+</style>

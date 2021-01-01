@@ -1,6 +1,6 @@
 <template>
   <section>
-    <mic-button />
+    <mic-button @serach-news="searchNewsByChannel" />
     <news-cards :newsArticles="newsArticles" />
   </section>
 </template>
@@ -22,19 +22,25 @@ export default {
     };
   },
   async mounted() {
-    try {
-      const params = {
-        country: this.newsCountry,
-      };
+    this.searchNewsByChannel();
+  },
+  methods: {
+    async searchNewsByChannel(channel) {
+      console.log("searchNewsByChannel :>> ", channel);
+      try {
+        const params = {
+          country: this.newsCountry,
+        };
 
-      const {
-        data: { articles },
-      } = await getTopHeadlines(params);
+        const {
+          data: { articles },
+        } = await getTopHeadlines(params);
 
-      this.newsArticles = articles;
-    } catch (error) {
-      console.log("getTopHeadlines error :>> ", error);
-    }
+        this.newsArticles = articles;
+      } catch (error) {
+        console.log("getTopHeadlines error :>> ", error);
+      }
+    },
   },
 };
 </script>
