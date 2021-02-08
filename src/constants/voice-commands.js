@@ -1,12 +1,4 @@
-/**
- * getVoiceCommand
- * @description returns the voice commands object
- * @param {String} input Input voice command
- * @param {String} output Output voice
- * @returns {Object} Voice commands object
- */
-const getVoiceCommand = (input, output = null) => ({ input, output });
-
+import { getVoiceCommand } from "@/helpers";
 /**
  * All the voice commands understandable to the applications
  * @type {Object}
@@ -22,4 +14,4 @@ const voiceCommands = {
   ),
 };
 
-export default voiceCommands;
+export default Object.freeze(voiceCommands);

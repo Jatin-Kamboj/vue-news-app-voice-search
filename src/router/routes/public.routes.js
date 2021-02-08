@@ -18,4 +18,4 @@ const publicRoutes = [
   // },
 ];
 
-export default publicRoutes;
+export default Object.freeze(publicRoutes);

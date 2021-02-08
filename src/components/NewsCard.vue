@@ -26,8 +26,12 @@
 
         <div class="content">
           {{ newsArticle.title }}
+          <div class="text-danger cusrsor-pointer" title="Read more ...">
+            Read more ...
+          </div>
           <br />
           <time :datetime="articleDate">{{ articleDate }}</time>
+          <span class="red">{{ index + 1 }}</span>
         </div>
       </div>
     </div>
@@ -42,6 +46,9 @@ export default {
       type: Object,
       required: true,
     },
+    index: {
+      type: Number,
+    },
   },
   computed: {
     articleDate() {
@@ -52,5 +59,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+ 

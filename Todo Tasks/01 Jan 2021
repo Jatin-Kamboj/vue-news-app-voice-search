@@ -1,0 +1,5 @@
+1 => Configured ansaying library to convert user voice command into text.
+2=> Added user commands in the constants and used them dynamically in the Mic bbutton component.
+3 => Searched user news from the api' using the voice commands.
+4 =?> Refracted code and added get user voice commands method to add it in the script file.
+5 =>  COnfigured the api method to fetch the latest records from the news on the basis of the dynamic approach. 

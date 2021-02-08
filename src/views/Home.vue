@@ -6,9 +6,8 @@
 </template>
 
 <script>
-import { MicButton } from "@/components";
-import { NewsCards } from "../components";
-import { getTopHeadlines } from "../services/apis/news.js";
+import { MicButton, NewsCards } from "@/components";
+import { getTopHeadlines } from "@/services/apis/news.js";
 
 export default {
   components: {
@@ -21,15 +20,14 @@ export default {
       newsCountry: "in",
     };
   },
-  async mounted() {
-    this.searchNewsByChannel();
-  },
+  async mounted() {},
   methods: {
     async searchNewsByChannel(channel) {
       console.log("searchNewsByChannel :>> ", channel);
       try {
         const params = {
-          country: this.newsCountry,
+          // country: this.newsCountry,
+          sources: channel,
         };
 
         const {
@@ -44,5 +42,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss"></style>

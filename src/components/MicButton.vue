@@ -53,9 +53,10 @@ export default {
          * @emits serach-news to serach news
          */
         [voiceCommands.searchNews.input]: (newsChannel) => {
-          console.log(newsChannel);
-          this.$emit("serach-news", newsChannel);
+          const newsSource = newsChannel.toString().replace(" ", "-");
+          console.log(newsSource);
 
+          this.$emit("serach-news", newsSource);
           activateSpeech(`${voiceCommands.searchNews.output} ${[newsChannel]}`);
         },
       };
@@ -64,7 +65,7 @@ export default {
       this.annyang.addCommands(commands);
 
       // Start listening.
-      this.annyang.start();
+
       this.annyang.debug();
 
       // // If user is speaking and clicks the mic button again
@@ -73,6 +74,7 @@ export default {
         this.stopSpeechRecognition();
         return;
       }
+      this.annyang.start();
 
       this.setIsUserSpeaking(true);
     },
@@ -146,7 +148,7 @@ export default {
      * @description stops the voice recognition
      */
     stopSpeechRecognition() {
-      annyang.start();
+      annyang.abort();
       this.setIsUserSpeaking(false);
     },
     /**

@@ -21,7 +21,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 // Styles for the mic button
 .micBtn-root {
   right: 40px;
@@ -121,4 +120,9 @@ html {
     box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
     animation: pulse-blue 2s infinite;
   }
+}
+
+// Show pointer cursor on html dom element
+.cusrsor-pointer {
+  cursor: pointer;
 }
